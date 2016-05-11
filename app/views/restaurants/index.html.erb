@@ -1,0 +1,24 @@
+<div class="banner text-center">
+  <div class="container">
+    <h1>Welcome to Yelp Clone</h1>
+    <ul class="list-inline">
+      <li><%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-primary" %></li>
+      <li><%= link_to "Browse Restaurants", "#restos", class: "btn btn-primary" %></li>
+    </ul>
+  </div>
+</div>
+<div class="container text-center" id="restos">
+  <h1>Our Restaurants</h1>
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(250,250,250,0.3), rgba(250,250,250,0.2)), url(http://lorempixel.com/400/200/food);">
+          <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+          <p><%= restaurant.address %></p>
+          <p><%= restaurant.phone_number %></p>
+          <p><%= restaurant.category %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
